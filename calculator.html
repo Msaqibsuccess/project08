@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: antiquewhite;
+        }
+
+        .calculator-container {
+            width: 350px;
+            height: 475px;
+            background-color: white;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.166);
+            border-radius: 15px;
+            padding: 10px;
+        }
+
+        .result {
+            width: 100%;
+            font-size: 40px;
+            border: none;
+            text-align: right;
+            font-weight: bold;
+            padding: 20px;
+            outline: none;
+            border-radius: 10px;
+        }
+
+        button {
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            border: none;
+            outline: none;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.173);
+            margin: 0 5px 10px 5px;
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+            background-color: black;
+        }
+
+        button:hover {
+            background-color: gray;
+        }
+
+        .row {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator-container">
+        <div class="output">
+            <input type="text" name="" id="" class="result" placeholder="0">
+        </div>
+        <div class="row">
+            <button class="ac">
+                AC
+            </button>
+            <button class="delete">
+                DEL
+            </button>
+            <button class="divide">
+                /
+            </button>
+            <button class="percentage">
+                %
+            </button>
+        </div>
+        <div class="row">
+            <button class="one">
+                1
+            </button>
+            <button class="two">
+                2
+            </button>
+            <button class="three">
+                3
+            </button>
+            <button class="multiple">
+                *
+            </button>
+        </div>
+        <div class="row">
+            <button class="four">
+                4
+            </button>
+            <button class="five">
+                5
+            </button>
+            <button class="six">
+                6
+            </button>
+            <button class="minus">
+                -
+            </button>
+        </div>
+        <div class="row">
+            <button class="seven">
+                7
+            </button>
+            <button class="eight">
+                8
+            </button>
+            <button class="nine">
+                9
+            </button>
+            <button class="add">
+                +
+            </button>
+        </div>
+        <div class="row">
+            <button class="double-zero">
+                00
+            </button>
+            <button class="zero">
+                0
+            </button>
+            <button class="dot">
+                .
+            </button>
+            <button class="equal">
+                =
+            </button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script>
+
+        const output = document.querySelector(".result");
+        const buttons = document.querySelectorAll("button");
+
+        console.log(output);
+        console.log(buttons);
+        var str = "";
+
+        buttons.forEach((buttons) => {
+            buttons.addEventListener('click', (c) => {
+                console.log(c.target.textContent.trim());
+
+                if (c.target.textContent.trim() === "AC") {
+                    str = "";
+                    output.value = str;
+
+                } else if (c.target.textContent.trim() === "=") {
+                    str = eval(str);
+                    output.value = str;
+
+                } else if (c.target.textContent.trim() === "DEL") {
+                    str = str.substring(0, str.length - 1);
+                    output.value = str;
+
+                } else {
+                    str += c.target.textContent.trim();
+                    output.value = str;
+
+                }
+            });
+        });
+
+
+
+
+
+    </script>
+</body>
+
+</html>
